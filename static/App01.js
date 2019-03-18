@@ -27,13 +27,37 @@ var MyComponent = function (_React$Component) {
     key: "render",
     value: function render() {
       return React.createElement(
-        "div",
+        "form",
         null,
         React.createElement(
-          "h1",
+          "label",
           null,
-          "hello"
-        )
+          "Origin:",
+          React.createElement("input", { type: "text", name: "Origin" })
+        ),
+        React.createElement("br", null),
+        React.createElement(
+          "label",
+          null,
+          "Destination:",
+          React.createElement("input", { type: "text", name: "Destination" })
+        ),
+        React.createElement("br", null),
+        React.createElement(
+          "label",
+          null,
+          "Start Date:",
+          React.createElement("input", { type: "date", name: "State Date" })
+        ),
+        React.createElement("br", null),
+        React.createElement(
+          "label",
+          null,
+          "End Date:",
+          React.createElement("input", { type: "date", name: "End Date" })
+        ),
+        React.createElement("br", null),
+        React.createElement("input", { type: "submit", value: "Submit" })
       );
     }
   }]);

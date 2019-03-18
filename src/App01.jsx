@@ -13,9 +13,25 @@ class MyComponent extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>hello</h1>
-      </div>
+      <form>
+        <label>
+          Origin:
+          <input type="text" name="Origin" />
+        </label><br></br>
+        <label>
+          Destination:
+          <input type="text" name="Destination" />
+        </label><br></br>
+        <label>
+          Start Date:
+          <input type="date" name="State Date" />
+        </label><br></br>
+        <label>
+          End Date:
+          <input type="date" name="End Date" />
+        </label><br></br>
+        <input type="submit" value="Submit" />
+    </form>
     );
   }
 }
