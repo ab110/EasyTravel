@@ -2,6 +2,8 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -17,47 +19,87 @@ var contentNode = document.getElementById("contents");
 var MyComponent = function (_React$Component) {
   _inherits(MyComponent, _React$Component);
 
-  function MyComponent() {
+  function MyComponent(props) {
     _classCallCheck(this, MyComponent);
 
-    return _possibleConstructorReturn(this, (MyComponent.__proto__ || Object.getPrototypeOf(MyComponent)).call(this));
+    var _this = _possibleConstructorReturn(this, (MyComponent.__proto__ || Object.getPrototypeOf(MyComponent)).call(this, props));
+
+    _this.state = {
+      Origin: "boston",
+      Destination: "ny",
+      StartDate: '05/04/2019',
+      EndDate: '06/04/2019'
+    };
+    _this.onChange = _this.onChange.bind(_this);
+    return _this;
   }
 
   _createClass(MyComponent, [{
+    key: "onChange",
+    value: function onChange(e) {
+      this.setState(_defineProperty({}, e.target.name, e.target.value));
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return React.createElement(
-        "form",
+        "div",
         null,
         React.createElement(
-          "label",
+          "form",
           null,
-          "Origin:",
-          React.createElement("input", { type: "text", name: "Origin" })
+          React.createElement(
+            "label",
+            null,
+            "Origin:",
+            React.createElement("input", { type: "text", name: "Origin", onChange: function onChange(e) {
+                return _this2.onChange(e);
+              } })
+          ),
+          React.createElement("br", null),
+          React.createElement(
+            "label",
+            null,
+            "Destination:",
+            React.createElement("input", { type: "text", name: "Destination", onChange: function onChange(e) {
+                return _this2.onChange(e);
+              } })
+          ),
+          React.createElement("br", null),
+          React.createElement(
+            "label",
+            null,
+            "Start Date:",
+            React.createElement("input", { type: "date", name: "StartDate", onChange: function onChange(e) {
+                return _this2.onChange(e);
+              } })
+          ),
+          React.createElement("br", null),
+          React.createElement(
+            "label",
+            null,
+            "End Date:",
+            React.createElement("input", { type: "date", name: "EndDate", onChange: function onChange(e) {
+                return _this2.onChange(e);
+              } })
+          ),
+          React.createElement("br", null),
+          React.createElement("input", { type: "submit", value: "Submit" })
         ),
-        React.createElement("br", null),
         React.createElement(
-          "label",
+          "h3",
           null,
-          "Destination:",
-          React.createElement("input", { type: "text", name: "Destination" })
-        ),
-        React.createElement("br", null),
-        React.createElement(
-          "label",
-          null,
-          "Start Date:",
-          React.createElement("input", { type: "date", name: "State Date" })
-        ),
-        React.createElement("br", null),
-        React.createElement(
-          "label",
-          null,
-          "End Date:",
-          React.createElement("input", { type: "date", name: "End Date" })
-        ),
-        React.createElement("br", null),
-        React.createElement("input", { type: "submit", value: "Submit" })
+          "Showing results for ",
+          this.state.Origin,
+          " to ",
+          this.state.Destination,
+          " for ",
+          this.state.StartDate,
+          " to ",
+          this.state.EndDate
+        )
       );
     }
   }]);
