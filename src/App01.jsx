@@ -61,6 +61,8 @@ class MyComponent extends React.Component {
           Flight 3: ($254, 10:15 AM ) <a href="https://www.alaskaair.com/">Book Flight</a><br></br>
         </h3>
 
+        <a href="view02.html">Housing</a>
+
       </div>
     );
   }

@@ -136,6 +136,11 @@ var MyComponent = function (_React$Component) {
             "Book Flight"
           ),
           React.createElement("br", null)
+        ),
+        React.createElement(
+          "a",
+          { href: "view02.html" },
+          "Housing"
         )
       );
     }
