@@ -13,9 +13,12 @@ class MyComponent extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>My View 02</h1>
-      </div>
+      <h3>
+          Housing Plan: <br></br>
+          Plan 1: ($87) <a href="https://www.marriott.com/default.mi">Book</a><br></br>
+          Plan 2: ($93) <a href="https://www.fourseasons.com/">Book</a><br></br>
+          Plan 3: ($66) <a href="https://www3.hilton.com/en/index.html?WT.mc_id=zLADA0WW1XX2PSH3DA4PPC5PPC6MULTIBR7">Book</a><br></br>
+      </h3>
     );
   }
 }
