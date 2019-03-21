@@ -52,8 +52,13 @@ class MyComponent extends React.Component {
           <button type="submit" name="SubmitButton" onClick={e => this.onSubmit(e)}>Submit</button>
         </form>
 
-        <h3>
+        <h2>
           Showing results for {this.state.Origin} to {this.state.Destination} for {this.state.StartDate} to {this.state.EndDate}
+        </h2>
+        <h3>
+          Flight 1: ($534, 9:30 PM) <a href="https://www.united.com/en/us">Book Flight</a><br></br>
+          Flight 2: ($314, 3:41 PM) <a href="https://www.delta.com/">Book Flight</a><br></br>
+          Flight 3: ($254, 10:15 AM ) <a href="https://www.alaskaair.com/">Book Flight</a><br></br>
         </h3>
 
       </div>
