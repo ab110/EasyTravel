@@ -31,6 +31,7 @@ var MyComponent = function (_React$Component) {
       EndDate: '06/04/2019'
     };
     _this.onChange = _this.onChange.bind(_this);
+    _this.onSubmit = _this.onSubmit.bind(_this);
     return _this;
   }
 
@@ -38,6 +39,11 @@ var MyComponent = function (_React$Component) {
     key: "onChange",
     value: function onChange(e) {
       this.setState(_defineProperty({}, e.target.name, e.target.value));
+    }
+  }, {
+    key: "onSubmit",
+    value: function onSubmit(e) {
+      e.preventDefault();
     }
   }, {
     key: "render",
@@ -54,7 +60,7 @@ var MyComponent = function (_React$Component) {
             "label",
             null,
             "Origin:",
-            React.createElement("input", { type: "text", name: "Origin", onChange: function onChange(e) {
+            React.createElement("input", { type: "text", name: "Origin", value: this.state.Origin, onChange: function onChange(e) {
                 return _this2.onChange(e);
               } })
           ),
@@ -63,7 +69,7 @@ var MyComponent = function (_React$Component) {
             "label",
             null,
             "Destination:",
-            React.createElement("input", { type: "text", name: "Destination", onChange: function onChange(e) {
+            React.createElement("input", { type: "text", name: "Destination", value: this.state.Destination, onChange: function onChange(e) {
                 return _this2.onChange(e);
               } })
           ),
@@ -72,7 +78,7 @@ var MyComponent = function (_React$Component) {
             "label",
             null,
             "Start Date:",
-            React.createElement("input", { type: "date", name: "StartDate", onChange: function onChange(e) {
+            React.createElement("input", { type: "date", name: "StartDate", value: this.state.StartDate, onChange: function onChange(e) {
                 return _this2.onChange(e);
               } })
           ),
@@ -81,12 +87,18 @@ var MyComponent = function (_React$Component) {
             "label",
             null,
             "End Date:",
-            React.createElement("input", { type: "date", name: "EndDate", onChange: function onChange(e) {
+            React.createElement("input", { type: "date", name: "EndDate", value: this.state.EndDate, onChange: function onChange(e) {
                 return _this2.onChange(e);
               } })
           ),
           React.createElement("br", null),
-          React.createElement("input", { type: "submit", value: "Submit" })
+          React.createElement(
+            "button",
+            { type: "submit", name: "SubmitButton", onClick: function onClick(e) {
+                return _this2.onSubmit(e);
+              } },
+            "Submit"
+          )
         ),
         React.createElement(
           "h3",
