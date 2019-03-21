@@ -89,7 +89,7 @@ var MyComponent = function (_React$Component) {
           React.createElement("input", { type: "submit", value: "Submit" })
         ),
         React.createElement(
-          "h3",
+          "h2",
           null,
           "Showing results for ",
           this.state.Origin,
@@ -99,6 +99,31 @@ var MyComponent = function (_React$Component) {
           this.state.StartDate,
           " to ",
           this.state.EndDate
+        ),
+        React.createElement(
+          "h3",
+          null,
+          "Flight 1: ($534, 9:30 PM) ",
+          React.createElement(
+            "a",
+            { href: "https://www.united.com/en/us" },
+            "Book Flight"
+          ),
+          React.createElement("br", null),
+          "Flight 2: ($314, 3:41 PM) ",
+          React.createElement(
+            "a",
+            { href: "https://www.delta.com/" },
+            "Book Flight"
+          ),
+          React.createElement("br", null),
+          "Flight 3: ($254, 10:15 AM ) ",
+          React.createElement(
+            "a",
+            { href: "https://www.alaskaair.com/" },
+            "Book Flight"
+          ),
+          React.createElement("br", null)
         )
       );
     }
