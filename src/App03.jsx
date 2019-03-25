@@ -36,6 +36,7 @@ class ActivityComponent extends React.Component {
 
         {results}
 
+        <button>Show Travel Packages</button>
       </div>
     );
   }
@@ -53,6 +54,7 @@ class ActivityResult extends React.Component {
   }
 
   onSelect(){
+
     this.setState({
       IsHidden: false
     })
@@ -60,13 +62,15 @@ class ActivityResult extends React.Component {
 
   render() {
     return (
-      <h3>
-        <a style={{color:"#FF0000"}} onClick={this.onSelect}>Select</a> {this.props.ID}
-          . {this.props.Name}: ${this.props.Price} <a href={this.props.Link}>View</a>
-        {!this.state.IsHidden && 
-          <h4 style={{color:"#c67007"}} >You've selected to try {this.props.Name}!</h4>
-        }
-      </h3>
+      <div>
+        <h3>
+          <a style={{color:"#FF0000"}} onClick={this.onSelect}>Select</a> {this.props.ID}
+            . {this.props.Name}: ${this.props.Price} <a href={this.props.Link}>View</a>
+          {!this.state.IsHidden && 
+            <h4 style={{color:"#c67007"}} >You've selected to try {this.props.Name}!</h4>
+          }
+        </h3>
+      </div>
     )
   }
 }

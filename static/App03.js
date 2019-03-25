@@ -52,7 +52,12 @@ var ActivityComponent = function (_React$Component) {
           null,
           "Activity Recomendations"
         ),
-        results
+        results,
+        React.createElement(
+          "button",
+          null,
+          "Show Travel Packages"
+        )
       );
     }
   }]);
@@ -79,6 +84,7 @@ var ActivityResult = function (_React$Component2) {
   _createClass(ActivityResult, [{
     key: "onSelect",
     value: function onSelect() {
+
       this.setState({
         IsHidden: false
       });
@@ -87,31 +93,35 @@ var ActivityResult = function (_React$Component2) {
     key: "render",
     value: function render() {
       return React.createElement(
-        "h3",
+        "div",
         null,
         React.createElement(
-          "a",
-          { style: { color: "#FF0000" }, onClick: this.onSelect },
-          "Select"
-        ),
-        " ",
-        this.props.ID,
-        ". ",
-        this.props.Name,
-        ": $",
-        this.props.Price,
-        " ",
-        React.createElement(
-          "a",
-          { href: this.props.Link },
-          "View"
-        ),
-        !this.state.IsHidden && React.createElement(
-          "h4",
-          { style: { color: "#c67007" } },
-          "You've selected to try ",
+          "h3",
+          null,
+          React.createElement(
+            "a",
+            { style: { color: "#FF0000" }, onClick: this.onSelect },
+            "Select"
+          ),
+          " ",
+          this.props.ID,
+          ". ",
           this.props.Name,
-          "!"
+          ": $",
+          this.props.Price,
+          " ",
+          React.createElement(
+            "a",
+            { href: this.props.Link },
+            "View"
+          ),
+          !this.state.IsHidden && React.createElement(
+            "h4",
+            { style: { color: "#c67007" } },
+            "You've selected to try ",
+            this.props.Name,
+            "!"
+          )
         )
       );
     }
