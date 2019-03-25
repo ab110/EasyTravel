@@ -192,4 +192,4 @@ var FlightResult = function (_React$Component2) {
 // This renders the JSX component inside the content node:
 
 
-ReactDOM.render(React.createElement(MyComponent, null), contentNode);
+ReactDOM.render(React.createElement(FlightComponent, null), contentNode);

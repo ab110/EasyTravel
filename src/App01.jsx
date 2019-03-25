@@ -102,4 +102,4 @@ class FlightResult extends React.Component {
 }
 
 // This renders the JSX component inside the content node:
-ReactDOM.render(<MyComponent />, contentNode);
+ReactDOM.render(<FlightComponent />, contentNode);
