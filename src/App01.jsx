@@ -1,19 +1,37 @@
 // This is a place holder for the initial application state.
-const state = [
-  
+const mockResults = [
+  {
+    ID: 1,
+    Price: 534,
+    Time: "9:30 PM",
+    Link: "https://www.united.com/en/us"
+  },
+  {
+    ID: 2,
+    Price: 314,
+    Time: "3:41 PM",
+    Link: "https://www.delta.com"
+  },
+  {
+    ID: 3,
+    Price: 254,
+    Time: "10:15 AM",
+    Link: "https://www.alaskaair.com"
+  }
 ];
 
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-class MyComponent extends React.Component {
+class FlightComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       Origin: "boston",
       Destination: "ny",
       StartDate: '05/04/2019',
-      EndDate: '06/04/2019'
+      EndDate: '06/04/2019',
+      IsHidden: true
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -27,9 +45,13 @@ class MyComponent extends React.Component {
   
   onSubmit(e) {
     e.preventDefault();
-	}
+    this.setState({
+      IsHidden: false
+    })
+  }
 
   render() {
+    const results = mockResults.map((result) => <FlightResult ID={result.ID} Price={result.Price} Time={result.Time} Link={result.Link} />);
     return (
       <div>
         <form>
@@ -51,18 +73,31 @@ class MyComponent extends React.Component {
           </label><br></br>
           <button type="submit" name="SubmitButton" onClick={e => this.onSubmit(e)}>Submit</button>
         </form>
-
-        <h2>
-          Showing results for {this.state.Origin} to {this.state.Destination} for {this.state.StartDate} to {this.state.EndDate}
-        </h2>
-        <h3>
-          Flight 1: ($534, 9:30 PM) <a href="https://www.united.com/en/us">Book Flight</a><br></br>
-          Flight 2: ($314, 3:41 PM) <a href="https://www.delta.com/">Book Flight</a><br></br>
-          Flight 3: ($254, 10:15 AM ) <a href="https://www.alaskaair.com/">Book Flight</a><br></br>
-        </h3>
-
+        
+        {!this.state.IsHidden && 
+        <div>
+          <h2>Showing Flight Results for {this.state.Origin} to {this.state.Destination} for {this.state.StartDate} to {this.state.EndDate}</h2>
+          {results}
+          <h4><a href="view02.html">Go to Hotel Results</a></h4>
+        </div>
+        }
       </div>
     );
+  }
+}
+
+
+class FlightResult extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <h3>
+        Flight {this.props.ID}: (${this.props.Price}, {this.props.Time}) <a href={this.props.Link}>Book Flight</a>
+      </h3>
+    )
   }
 }
 
