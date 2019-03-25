@@ -1,31 +1,59 @@
 // This is a place holder for the initial application state.
-const state = [
-
+const mockResults = [
+  {
+    ID: 1,
+    Name: "Axe Throwing",
+    Price: 20,
+    Link: "https://www.rageaxethrowing.com/en/"
+  },
+  {
+    ID: 2,
+    Name: "Sushi",
+    Price: 25,
+    Link: "http://mizusbg.com/sanjose/menusanjose/"
+  },
+  {
+    ID: 3,
+    Name: "Hiking",
+    Price: "Free",
+    Link: "https://www.alltrails.com/parks/us/california/almaden-quicksilver-county-park"
+  }
 ];
 
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-class MyComponent extends React.Component {
+class ActivityComponent extends React.Component {
   constructor() {
     super();
   }
 
   render() {
+    const results = mockResults.map((result) => <ActivityResult ID={result.ID} Name={result.Name} Price={result.Price} Link={result.Link} />);
     return (
       <div>
-        <h1>
-        Recomendations
-      </h1>
-      <h3>
-          Axe Throwing: ($20) <a href="https://www.rageaxethrowing.com/en/">View</a><br></br>
-          Sushi: ($25) <a href="http://mizusbg.com/sanjose/menusanjose/">View</a><br></br>
-          Hiking Trail: (Free) <a href="https://www.alltrails.com/parks/us/california/almaden-quicksilver-county-park">View</a><br></br>
-      </h3>
+        <h1>Activity Recomendations</h1>
+
+        {results}
+
       </div>
     );
   }
 }
 
+class ActivityResult extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <h3>
+        {this.props.ID}. {this.props.Name}: ${this.props.Price} <a href={this.props.Link}>View</a>
+      </h3>
+    )
+  }
+}
+
 // This renders the JSX component inside the content node:
-ReactDOM.render(<MyComponent />, contentNode);
+ReactDOM.render(<ActivityComponent />, contentNode);

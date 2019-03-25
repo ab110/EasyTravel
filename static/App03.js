@@ -9,64 +9,91 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 // This is a place holder for the initial application state.
-var state = [];
+var mockResults = [{
+  ID: 1,
+  Name: "Axe Throwing",
+  Price: 20,
+  Link: "https://www.rageaxethrowing.com/en/"
+}, {
+  ID: 2,
+  Name: "Sushi",
+  Price: 25,
+  Link: "http://mizusbg.com/sanjose/menusanjose/"
+}, {
+  ID: 3,
+  Name: "Hiking",
+  Price: "Free",
+  Link: "https://www.alltrails.com/parks/us/california/almaden-quicksilver-county-park"
+}];
 
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-var MyComponent = function (_React$Component) {
-  _inherits(MyComponent, _React$Component);
+var ActivityComponent = function (_React$Component) {
+  _inherits(ActivityComponent, _React$Component);
 
-  function MyComponent() {
-    _classCallCheck(this, MyComponent);
+  function ActivityComponent() {
+    _classCallCheck(this, ActivityComponent);
 
-    return _possibleConstructorReturn(this, (MyComponent.__proto__ || Object.getPrototypeOf(MyComponent)).call(this));
+    return _possibleConstructorReturn(this, (ActivityComponent.__proto__ || Object.getPrototypeOf(ActivityComponent)).call(this));
   }
 
-  _createClass(MyComponent, [{
+  _createClass(ActivityComponent, [{
     key: "render",
     value: function render() {
+      var results = mockResults.map(function (result) {
+        return React.createElement(ActivityResult, { ID: result.ID, Name: result.Name, Price: result.Price, Link: result.Link });
+      });
       return React.createElement(
         "div",
         null,
         React.createElement(
           "h1",
           null,
-          "Recomendations"
+          "Activity Recomendations"
         ),
+        results
+      );
+    }
+  }]);
+
+  return ActivityComponent;
+}(React.Component);
+
+var ActivityResult = function (_React$Component2) {
+  _inherits(ActivityResult, _React$Component2);
+
+  function ActivityResult(props) {
+    _classCallCheck(this, ActivityResult);
+
+    return _possibleConstructorReturn(this, (ActivityResult.__proto__ || Object.getPrototypeOf(ActivityResult)).call(this, props));
+  }
+
+  _createClass(ActivityResult, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "h3",
+        null,
+        this.props.ID,
+        ". ",
+        this.props.Name,
+        ": $",
+        this.props.Price,
+        " ",
         React.createElement(
-          "h3",
-          null,
-          "Axe Throwing: ($20) ",
-          React.createElement(
-            "a",
-            { href: "https://www.rageaxethrowing.com/en/" },
-            "View"
-          ),
-          React.createElement("br", null),
-          "Sushi: ($25) ",
-          React.createElement(
-            "a",
-            { href: "http://mizusbg.com/sanjose/menusanjose/" },
-            "View"
-          ),
-          React.createElement("br", null),
-          "Hiking Trail: (Free) ",
-          React.createElement(
-            "a",
-            { href: "https://www.alltrails.com/parks/us/california/almaden-quicksilver-county-park" },
-            "View"
-          ),
-          React.createElement("br", null)
+          "a",
+          { href: this.props.Link },
+          "View"
         )
       );
     }
   }]);
 
-  return MyComponent;
+  return ActivityResult;
 }(React.Component);
 
 // This renders the JSX component inside the content node:
 
 
-ReactDOM.render(React.createElement(MyComponent, null), contentNode);
+ReactDOM.render(React.createElement(ActivityComponent, null), contentNode);

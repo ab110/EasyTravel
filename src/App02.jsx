@@ -20,7 +20,7 @@ const mockResults = [
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-class MyComponent extends React.Component {
+class HotelComponent extends React.Component {
   constructor() {
     super();
   }
@@ -33,7 +33,7 @@ class MyComponent extends React.Component {
         
         {results}
 
-        <a href="view03.html">Go to Travel Recommendations</a>
+        <a href="view03.html">Go to Activity Recommendations</a>
       </div>
     );
   }
@@ -54,4 +54,4 @@ class HotelResult extends React.Component {
 }
 
 // This renders the JSX component inside the content node:
-ReactDOM.render(<MyComponent />, contentNode);
+ReactDOM.render(<HotelComponent />, contentNode);

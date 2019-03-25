@@ -26,16 +26,16 @@ var mockResults = [{
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-var MyComponent = function (_React$Component) {
-  _inherits(MyComponent, _React$Component);
+var HotelComponent = function (_React$Component) {
+  _inherits(HotelComponent, _React$Component);
 
-  function MyComponent() {
-    _classCallCheck(this, MyComponent);
+  function HotelComponent() {
+    _classCallCheck(this, HotelComponent);
 
-    return _possibleConstructorReturn(this, (MyComponent.__proto__ || Object.getPrototypeOf(MyComponent)).call(this));
+    return _possibleConstructorReturn(this, (HotelComponent.__proto__ || Object.getPrototypeOf(HotelComponent)).call(this));
   }
 
-  _createClass(MyComponent, [{
+  _createClass(HotelComponent, [{
     key: "render",
     value: function render() {
       var results = mockResults.map(function (result) {
@@ -53,13 +53,13 @@ var MyComponent = function (_React$Component) {
         React.createElement(
           "a",
           { href: "view03.html" },
-          "Go to Travel Recommendations"
+          "Go to Activity Recommendations"
         )
       );
     }
   }]);
 
-  return MyComponent;
+  return HotelComponent;
 }(React.Component);
 
 var HotelResult = function (_React$Component2) {
@@ -97,4 +97,4 @@ var HotelResult = function (_React$Component2) {
 // This renders the JSX component inside the content node:
 
 
-ReactDOM.render(React.createElement(MyComponent, null), contentNode);
+ReactDOM.render(React.createElement(HotelComponent, null), contentNode);
