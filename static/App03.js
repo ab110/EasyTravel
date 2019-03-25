@@ -32,7 +32,32 @@ var MyComponent = function (_React$Component) {
         React.createElement(
           "h1",
           null,
-          "My View 03"
+          "Recomendations"
+        ),
+        React.createElement(
+          "h3",
+          null,
+          "Axe Throwing: ($20) ",
+          React.createElement(
+            "a",
+            { href: "https://www.rageaxethrowing.com/en/" },
+            "View"
+          ),
+          React.createElement("br", null),
+          "Sushi: ($25) ",
+          React.createElement(
+            "a",
+            { href: "http://mizusbg.com/sanjose/menusanjose/" },
+            "View"
+          ),
+          React.createElement("br", null),
+          "Hiking Trail: (Free) ",
+          React.createElement(
+            "a",
+            { href: "https://www.alltrails.com/parks/us/california/almaden-quicksilver-county-park" },
+            "View"
+          ),
+          React.createElement("br", null)
         )
       );
     }

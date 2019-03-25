@@ -14,7 +14,14 @@ class MyComponent extends React.Component {
   render() {
     return (
       <div>
-        <h1>My View 03</h1>
+        <h1>
+        Recomendations
+      </h1>
+      <h3>
+          Axe Throwing: ($20) <a href="https://www.rageaxethrowing.com/en/">View</a><br></br>
+          Sushi: ($25) <a href="http://mizusbg.com/sanjose/menusanjose/">View</a><br></br>
+          Hiking Trail: (Free) <a href="https://www.alltrails.com/parks/us/california/almaden-quicksilver-county-park">View</a><br></br>
+      </h3>
       </div>
     );
   }

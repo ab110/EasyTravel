@@ -32,7 +32,37 @@ var MyComponent = function (_React$Component) {
         React.createElement(
           "h1",
           null,
-          "My View 02"
+          "Housing Plan"
+        ),
+        React.createElement(
+          "h3",
+          null,
+          "Plan 1: ($87) ",
+          React.createElement(
+            "a",
+            { href: "https://www.marriott.com/default.mi" },
+            "Book"
+          ),
+          React.createElement("br", null),
+          "Plan 2: ($93) ",
+          React.createElement(
+            "a",
+            { href: "https://www.fourseasons.com/" },
+            "Book"
+          ),
+          React.createElement("br", null),
+          "Plan 3: ($66) ",
+          React.createElement(
+            "a",
+            { href: "https://www3.hilton.com/en/index.html?WT.mc_id=zLADA0WW1XX2PSH3DA4PPC5PPC6MULTIBR7" },
+            "Book"
+          ),
+          React.createElement("br", null)
+        ),
+        React.createElement(
+          "a",
+          { href: "view03.html" },
+          "Recommendations"
         )
       );
     }
