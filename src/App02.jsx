@@ -1,6 +1,20 @@
 // This is a place holder for the initial application state.
-const state = [
-
+const mockResults = [
+  {
+    ID: 1,
+    Price: 87,
+    Link: "https://www.marriott.com/default.mi"
+  },
+  {
+    ID: 2,
+    Price: 93,
+    Link: "https://www.fourseasons.com/"
+  },
+  {
+    ID: 3,
+    Price: 66,
+    Link: "https://www3.hilton.com/en/index.html?WT.mc_id=zLADA0WW1XX2PSH3DA4PPC5PPC6MULTIBR7"
+  }
 ];
 
 // This grabs the DOM element to be used to mount React components.
@@ -12,20 +26,30 @@ class MyComponent extends React.Component {
   }
 
   render() {
+    const results = mockResults.map((result) => <HotelResult ID={result.ID} Price={result.Price} Link={result.Link} />);
     return (
       <div>
-        <h1>
-          Housing Plan
-        </h1>
-        <h3>
-          Plan 1: ($87) <a href="https://www.marriott.com/default.mi">Book</a><br></br>
-          Plan 2: ($93) <a href="https://www.fourseasons.com/">Book</a><br></br>
-          Plan 3: ($66) <a href="https://www3.hilton.com/en/index.html?WT.mc_id=zLADA0WW1XX2PSH3DA4PPC5PPC6MULTIBR7">Book</a><br></br>
-      </h3>
+        <h1>Housing Plans</h1>
+        
+        {results}
 
-      <a href="view03.html">Recommendations</a>
+        <a href="view03.html">Go to Travel Recommendations</a>
       </div>
     );
+  }
+}
+
+class HotelResult extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <h3>
+        Hotel {this.props.ID}: ${this.props.Price} <a href={this.props.Link}>Book Hotel</a>
+      </h3>
+    )
   }
 }
 

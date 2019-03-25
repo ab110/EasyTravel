@@ -9,7 +9,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 // This is a place holder for the initial application state.
-var state = [];
+var mockResults = [{
+  ID: 1,
+  Price: 87,
+  Link: "https://www.marriott.com/default.mi"
+}, {
+  ID: 2,
+  Price: 93,
+  Link: "https://www.fourseasons.com/"
+}, {
+  ID: 3,
+  Price: 66,
+  Link: "https://www3.hilton.com/en/index.html?WT.mc_id=zLADA0WW1XX2PSH3DA4PPC5PPC6MULTIBR7"
+}];
 
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
@@ -26,49 +38,60 @@ var MyComponent = function (_React$Component) {
   _createClass(MyComponent, [{
     key: "render",
     value: function render() {
+      var results = mockResults.map(function (result) {
+        return React.createElement(HotelResult, { ID: result.ID, Price: result.Price, Link: result.Link });
+      });
       return React.createElement(
         "div",
         null,
         React.createElement(
           "h1",
           null,
-          "Housing Plan"
+          "Housing Plans"
         ),
-        React.createElement(
-          "h3",
-          null,
-          "Plan 1: ($87) ",
-          React.createElement(
-            "a",
-            { href: "https://www.marriott.com/default.mi" },
-            "Book"
-          ),
-          React.createElement("br", null),
-          "Plan 2: ($93) ",
-          React.createElement(
-            "a",
-            { href: "https://www.fourseasons.com/" },
-            "Book"
-          ),
-          React.createElement("br", null),
-          "Plan 3: ($66) ",
-          React.createElement(
-            "a",
-            { href: "https://www3.hilton.com/en/index.html?WT.mc_id=zLADA0WW1XX2PSH3DA4PPC5PPC6MULTIBR7" },
-            "Book"
-          ),
-          React.createElement("br", null)
-        ),
+        results,
         React.createElement(
           "a",
           { href: "view03.html" },
-          "Recommendations"
+          "Go to Travel Recommendations"
         )
       );
     }
   }]);
 
   return MyComponent;
+}(React.Component);
+
+var HotelResult = function (_React$Component2) {
+  _inherits(HotelResult, _React$Component2);
+
+  function HotelResult(props) {
+    _classCallCheck(this, HotelResult);
+
+    return _possibleConstructorReturn(this, (HotelResult.__proto__ || Object.getPrototypeOf(HotelResult)).call(this, props));
+  }
+
+  _createClass(HotelResult, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "h3",
+        null,
+        "Hotel ",
+        this.props.ID,
+        ": $",
+        this.props.Price,
+        " ",
+        React.createElement(
+          "a",
+          { href: this.props.Link },
+          "Book Hotel"
+        )
+      );
+    }
+  }]);
+
+  return HotelResult;
 }(React.Component);
 
 // This renders the JSX component inside the content node:

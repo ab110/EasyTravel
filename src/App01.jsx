@@ -78,7 +78,7 @@ class FlightComponent extends React.Component {
         <div>
           <h2>Showing Flight Results for {this.state.Origin} to {this.state.Destination} for {this.state.StartDate} to {this.state.EndDate}</h2>
           {results}
-          <h4><a href="view02.html">Go to Hotel Results</a></h4>
+          <a href="view02.html">Go to Housing Plans</a>
         </div>
         }
       </div>

@@ -139,13 +139,9 @@ var FlightComponent = function (_React$Component) {
           ),
           results,
           React.createElement(
-            "h4",
-            null,
-            React.createElement(
-              "a",
-              { href: "view02.html" },
-              "Go to Hotel Results"
-            )
+            "a",
+            { href: "view02.html" },
+            "Go to Housing Plans"
           )
         )
       );
