@@ -66,15 +66,35 @@ var ActivityResult = function (_React$Component2) {
   function ActivityResult(props) {
     _classCallCheck(this, ActivityResult);
 
-    return _possibleConstructorReturn(this, (ActivityResult.__proto__ || Object.getPrototypeOf(ActivityResult)).call(this, props));
+    var _this2 = _possibleConstructorReturn(this, (ActivityResult.__proto__ || Object.getPrototypeOf(ActivityResult)).call(this, props));
+
+    _this2.state = {
+      IsHidden: true
+    };
+
+    _this2.onSelect = _this2.onSelect.bind(_this2);
+    return _this2;
   }
 
   _createClass(ActivityResult, [{
+    key: "onSelect",
+    value: function onSelect() {
+      this.setState({
+        IsHidden: false
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement(
         "h3",
         null,
+        React.createElement(
+          "a",
+          { style: { color: "#FF0000" }, onClick: this.onSelect },
+          "Select"
+        ),
+        " ",
         this.props.ID,
         ". ",
         this.props.Name,
@@ -85,6 +105,13 @@ var ActivityResult = function (_React$Component2) {
           "a",
           { href: this.props.Link },
           "View"
+        ),
+        !this.state.IsHidden && React.createElement(
+          "h4",
+          { style: { color: "#c67007" } },
+          "You've selected to try ",
+          this.props.Name,
+          "!"
         )
       );
     }

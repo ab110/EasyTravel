@@ -2,18 +2,21 @@
 const mockResults = [
   {
     ID: 1,
+    Name: "United",
     Price: 534,
     Time: "9:30 PM",
     Link: "https://www.united.com/en/us"
   },
   {
     ID: 2,
+    Name: "Delta",
     Price: 314,
     Time: "3:41 PM",
     Link: "https://www.delta.com"
   },
   {
     ID: 3,
+    Name: "Alaska Air",
     Price: 254,
     Time: "10:15 AM",
     Link: "https://www.alaskaair.com"
@@ -51,7 +54,7 @@ class FlightComponent extends React.Component {
   }
 
   render() {
-    const results = mockResults.map((result) => <FlightResult ID={result.ID} Price={result.Price} Time={result.Time} Link={result.Link} />);
+    const results = mockResults.map((result) => <FlightResult ID={result.ID} Name={result.Name} Price={result.Price} Time={result.Time} Link={result.Link} />);
     return (
       <div>
         <form>
@@ -88,14 +91,31 @@ class FlightComponent extends React.Component {
 
 
 class FlightResult extends React.Component {
+  
   constructor(props) {
     super(props);
+
+    this.state = {
+      IsHidden: true
+    };
+
+    this.onSelect = this.onSelect.bind(this);
+  }
+
+  onSelect(){
+    this.setState({
+      IsHidden: false
+    })
   }
 
   render() {
     return (
       <h3>
-        Flight {this.props.ID}: (${this.props.Price}, {this.props.Time}) <a href={this.props.Link}>Book Flight</a>
+        <a style={{color:"#FF0000"}} onClick={this.onSelect}>Select</a> {this.props.ID}. {this.props.Name}: (${this.props.Price}
+        , {this.props.Time}) <a href={this.props.Link}>Book Flight</a>
+        {!this.state.IsHidden && 
+        <h4 style={{color:"#c67007"}} >You've selected to fly with {this.props.Name}!</h4>
+        }
       </h3>
     )
   }

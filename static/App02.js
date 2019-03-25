@@ -11,14 +11,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // This is a place holder for the initial application state.
 var mockResults = [{
   ID: 1,
+  Name: "Marriott",
   Price: 87,
   Link: "https://www.marriott.com/default.mi"
 }, {
   ID: 2,
+  Name: "Four Seasons",
   Price: 93,
   Link: "https://www.fourseasons.com/"
 }, {
   ID: 3,
+  Name: "Hilton",
   Price: 66,
   Link: "https://www3.hilton.com/en/index.html?WT.mc_id=zLADA0WW1XX2PSH3DA4PPC5PPC6MULTIBR7"
 }];
@@ -39,7 +42,7 @@ var HotelComponent = function (_React$Component) {
     key: "render",
     value: function render() {
       var results = mockResults.map(function (result) {
-        return React.createElement(HotelResult, { ID: result.ID, Price: result.Price, Link: result.Link });
+        return React.createElement(HotelResult, { ID: result.ID, Name: result.Name, Price: result.Price, Link: result.Link });
       });
       return React.createElement(
         "div",
@@ -68,24 +71,52 @@ var HotelResult = function (_React$Component2) {
   function HotelResult(props) {
     _classCallCheck(this, HotelResult);
 
-    return _possibleConstructorReturn(this, (HotelResult.__proto__ || Object.getPrototypeOf(HotelResult)).call(this, props));
+    var _this2 = _possibleConstructorReturn(this, (HotelResult.__proto__ || Object.getPrototypeOf(HotelResult)).call(this, props));
+
+    _this2.state = {
+      IsHidden: true
+    };
+
+    _this2.onSelect = _this2.onSelect.bind(_this2);
+    return _this2;
   }
 
   _createClass(HotelResult, [{
+    key: "onSelect",
+    value: function onSelect() {
+      this.setState({
+        IsHidden: false
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement(
         "h3",
         null,
-        "Hotel ",
+        React.createElement(
+          "a",
+          { style: { color: "#FF0000" }, onClick: this.onSelect },
+          "Select"
+        ),
+        " ",
         this.props.ID,
-        ": $",
+        ". ",
+        this.props.Name,
+        " $",
         this.props.Price,
         " ",
         React.createElement(
           "a",
           { href: this.props.Link },
           "Book Hotel"
+        ),
+        !this.state.IsHidden && React.createElement(
+          "h4",
+          { style: { color: "#c67007" } },
+          "You've selected to stay at ",
+          this.props.Name,
+          "!"
         )
       );
     }

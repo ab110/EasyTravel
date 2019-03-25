@@ -44,12 +44,28 @@ class ActivityComponent extends React.Component {
 class ActivityResult extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      IsHidden: true
+    };
+
+    this.onSelect = this.onSelect.bind(this);
+  }
+
+  onSelect(){
+    this.setState({
+      IsHidden: false
+    })
   }
 
   render() {
     return (
       <h3>
-        {this.props.ID}. {this.props.Name}: ${this.props.Price} <a href={this.props.Link}>View</a>
+        <a style={{color:"#FF0000"}} onClick={this.onSelect}>Select</a> {this.props.ID}
+          . {this.props.Name}: ${this.props.Price} <a href={this.props.Link}>View</a>
+        {!this.state.IsHidden && 
+          <h4 style={{color:"#c67007"}} >You've selected to try {this.props.Name}!</h4>
+        }
       </h3>
     )
   }
