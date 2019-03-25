@@ -55,7 +55,7 @@ var HotelComponent = function (_React$Component) {
         results,
         React.createElement(
           "a",
-          { href: "view03.html" },
+          { href: "ActivityView.html" },
           "Go to Activity Recommendations"
         )
       );

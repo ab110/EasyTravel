@@ -36,7 +36,7 @@ class HotelComponent extends React.Component {
         
         {results}
 
-        <a href="view03.html">Go to Activity Recommendations</a>
+        <a href="ActivityView.html">Go to Activity Recommendations</a>
       </div>
     );
   }
