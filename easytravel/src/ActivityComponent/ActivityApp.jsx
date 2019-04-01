@@ -1,5 +1,6 @@
 // This is a place holder for the initial application state.
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 const mockResults = [
   {
@@ -66,7 +67,7 @@ class ActivityResult extends React.Component {
     return (
       <div>
         <h3>
-          <a style={{color:"#FF0000"}} onClick={this.onSelect}>Select</a> {this.props.ID}
+          <Button onClick={this.onSelect}>Select</Button> {this.props.ID}
             . {this.props.Name}: ${this.props.Price} <a href={this.props.Link}>View</a>
           {!this.state.IsHidden &&
             <h4 style={{color:"#c67007"}} >You've selected to try {this.props.Name}!</h4>
