@@ -1,6 +1,7 @@
 // This is a place holder for the initial application state.
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import './FlightApp.css';
 
 const mockResults = [
   {
@@ -59,27 +60,28 @@ class FlightComponent extends React.Component {
   render() {
     const results = mockResults.map((result) => <FlightResult ID={result.ID} Name={result.Name} Price={result.Price} Time={result.Time} Link={result.Link} />);
     return (
-      <div>
-        <form>
-          <label>
-            Origin:
-            <input type="text" name="Origin" value={this.state.Origin} onChange={e => this.onChange(e)}/>
-          </label><br></br>
-          <label>
-            Destination:
-            <input type="text" name="Destination" value={this.state.Destination} onChange={e => this.onChange(e)}/>
-          </label><br></br>
-          <label>
-            Start Date:
-            <input type="date" name="StartDate" value={this.state.StartDate} onChange={e => this.onChange(e)}/>
-          </label><br></br>
-          <label>
-            End Date:
-            <input type="date" name="EndDate" value={this.state.EndDate} onChange={e => this.onChange(e)}/>
-          </label><br></br>
-        <Button type="submit" name="SubmitButton" onClick={e => this.onSubmit(e)}>Submit</Button>
-        </form>
-
+      <div className="flight-component">
+        <div className="alignment-wrap">
+          <form>
+            <label>
+              Origin:
+              <input className="flight-info" type="text" name="Origin" value={this.state.Origin} onChange={e => this.onChange(e)}/>
+            </label><br></br>
+            <label>
+                Destination:
+                <input className="flight-info" type="text" name="Destination" value={this.state.Destination} onChange={e => this.onChange(e)}/>
+              </label><br></br>
+            <label>
+                Start Date:
+                <input className="flight-info" type="date" name="StartDate" value={this.state.StartDate} onChange={e => this.onChange(e)}/>
+              </label><br></br>
+            <label>
+                End Date:
+                <input className="flight-info" type="date" name="EndDate" value={this.state.EndDate} onChange={e => this.onChange(e)}/>
+            </label><br></br>
+            <Button type="submit" name="SubmitButton" onClick={e => this.onSubmit(e)}>Submit</Button>
+          </form>
+        </div>
         {!this.state.IsHidden &&
         <div>
           <h2>Showing Flight Results for {this.state.Origin} to {this.state.Destination} for {this.state.StartDate} to {this.state.EndDate}</h2>

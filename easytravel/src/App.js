@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import { Navbar, Form, FormControl, Button, InputGroup } from 'react-bootstrap';
 import './App.css';
 import { ActivityComponent, ActivityResult } from './ActivityComponent/ActivityApp.jsx';
@@ -20,7 +20,7 @@ class LandingPage extends React.Component{
 // then our route config
 const routes = [
   {
-    path:"/home",
+    path:"/",
     component: LandingPage
   },
   {
@@ -42,7 +42,7 @@ const routes = [
 function RouteWithSubRoutes(route) {
   return (
     <Route
-      path={route.path}
+      exact path={route.path}
       render={props => (
         // pass the sub-routes down to keep nesting
         <route.component {...props} routes={route.routes} />
