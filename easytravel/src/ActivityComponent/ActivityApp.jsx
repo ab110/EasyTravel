@@ -23,9 +23,6 @@ const mockResults = [
   }
 ];
 
-// This grabs the DOM element to be used to mount React components.
-var contentNode = document.getElementById("contents");
-
 class ActivityComponent extends React.Component {
   constructor() {
     super();

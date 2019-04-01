@@ -9,7 +9,9 @@ import { HotelComponent, HotelResult } from './HotelComponent/HotelApp.jsx';
 class LandingPage extends React.Component{
   render() {
     return(
-      <Button href="/flights">Start Traveling</Button>
+      <div className="startbtn">
+        <Button className="btn-lg btn-success" href="/flights">Start Traveling</Button>
+      </div>
     )
   }
 }
@@ -52,7 +54,17 @@ function RouteWithSubRoutes(route) {
 function App() {
   return (
     <Router>
-      <div>
+      <br />
+      <div className="btn-container" role="group" aria-label="Basic example">
+        <div className="btn-group">
+          <Button href="/flights" type="button" className="btn btn-secondary" id="flight-btn">Flights</Button>
+          <Button href="/hotels" type="button" className="btn btn-secondary" id="hotel-btn">Hotels</Button>
+          <Button href="/activities" type="button" className="btn btn-secondary" id="activity-btn">Activities</Button>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div className="component-content">
         {routes.map((route, i) => (
           <RouteWithSubRoutes key={i} {...route} />
         ))}
