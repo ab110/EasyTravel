@@ -1,0 +1,15 @@
+.header-title{
+  display: flex;
+}
+
+.header-title h1{
+  font-size: 2.25vw;
+  font-family: cursive;
+  text-decoration: underline;
+  color: rgb(0, 124, 255);
+}
+
+.fa-plane-departure{
+  margin-top: .75vw;
+  font-size: 1.75vw;
+}
