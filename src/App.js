@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Navbar, Form, FormControl, Button, InputGroup } from 'react-bootstrap';
+import { Navbar, Button } from 'react-bootstrap';
 import './App.css';
 import { ActivityComponent, ActivityResult } from './ActivityComponent/ActivityApp.jsx';
 import { FlightComponent, FlightResult } from './FlightComponent/FlightApp.jsx';
