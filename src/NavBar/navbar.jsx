@@ -7,10 +7,10 @@ class NavComponent extends React.Component {
   render() {
     return (
       <Navbar className="bg-dark justify-content-between">
-        <div class="branding header-space">
-          <a href="./home" class="nav-link">
-            <span class="title header-title">
-              <h1>EasyTravel <i class="fas fa-plane-departure"></i></h1>
+        <div className="branding header-space">
+          <a href="./home" className="nav-link">
+            <span className="title header-title">
+              <h1>EasyTravel <i className="fas fa-plane-departure"></i></h1>
             </span>
           </a>
         </div>

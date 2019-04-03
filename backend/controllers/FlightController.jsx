@@ -5,14 +5,14 @@ import db from './db/db';
 const app = express();
 
 // get all todos
-app.get('/flights', (req, res) => {
+app.get('/flights/getTest', (req, res) => {
   res.status(200).send({
     success: 'true',
     message: 'todos retrieved successfully',
     todos: db
   })
 });
-const PORT = 5000;
+const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}`)
