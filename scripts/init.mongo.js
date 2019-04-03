@@ -9,3 +9,9 @@ db.flights.insertMany( [
     {"ID": 2,"Name": "Sushi","Price": 25,"Link": "http://mizusbg.com/sanjose/menusanjose/"}, 
     {"ID": 3,"Name": "Hiking","Price": "Free","Link": "https://www.alltrails.com/parks/us/california/almaden-quicksilver-county-park"}
  ]);
+
+ db.hotels.insertMany( [
+   {"ID": 1, "Name": "Marriott", "Price": 87, "Link": "https://www.marriott.com/default.mi"},
+   {"ID": 2, "Name": "Four Seasons", "Price": 93, "Link": "https://www.fourseasons.com/"},
+   {"ID": 3, "Name": "Hilton", "Price": 66, "Link": "https://www3.hilton.com/en/index.html?WT.mc_id=zLADA0WW1XX2PSH3DA4PPC5PPC6MULTIBR7"}
+]);
