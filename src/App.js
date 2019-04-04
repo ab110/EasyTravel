@@ -53,29 +53,28 @@ function RouteWithSubRoutes(route) {
 }
 
 class App extends React.Component {
-
   state = {
-    data: [],
-    id: 0,
-    message: null,
-    intervalIsSet: false,
-    idToDelete: null,
-    idToUpdate: null,
-    objectToUpdate: null
+    data: null
   };
 
+  componentDidMount() {
+      // Call our fetch function below once the component mounts
+    this.callBackendAPI()
+      .then(res => this.setState({ data: res.express }))
+      .catch(err => console.log(err));
+  }
 
-  // never let a process live forever
- // always kill a process everytime we are done using it
+    // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
+  callBackendAPI = async () => {
+    const response = await fetch('/express_backend');
+    const body = await response.json();
 
+    if (response.status !== 200) {
+      throw Error(body.message)
+    }
+    return body;
+  };
 
- // just a note, here, in the front end, we use the id key of our data object
- // in order to identify which we want to Update or delete.
- // for our back end, we use the object id assigned by MongoDB to modify
- // data base entries
-
- // our first get method that uses our backend api to
- // fetch data from our data base
 
   render(){
     return (
@@ -87,6 +86,7 @@ class App extends React.Component {
             <Button href="/hotels" type="button" className="btn btn-secondary" id="hotel-btn">Hotels</Button>
             <Button href="/activities" type="button" className="btn btn-secondary" id="activity-btn">Activities</Button>
           </div>
+          <p className="App-intro">{this.state.data}</p>
         </div>
         <br />
         <br />
