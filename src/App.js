@@ -5,6 +5,7 @@ import './App.css';
 import { ActivityComponent, ActivityResult } from './ActivityComponent/ActivityApp.jsx';
 import { FlightComponent, FlightResult } from './FlightComponent/FlightApp.jsx';
 import { HotelComponent, HotelResult } from './HotelComponent/HotelApp.jsx';
+import axios from "axios";
 
 class LandingPage extends React.Component{
   render() {
@@ -51,26 +52,52 @@ function RouteWithSubRoutes(route) {
   );
 }
 
-function App() {
-  return (
-    <Router>
-      <br />
-      <div className="btn-container" role="group" aria-label="Basic example">
-        <div className="btn-group">
-          <Button href="/flights" type="button" className="btn btn-secondary" id="flight-btn">Flights</Button>
-          <Button href="/hotels" type="button" className="btn btn-secondary" id="hotel-btn">Hotels</Button>
-          <Button href="/activities" type="button" className="btn btn-secondary" id="activity-btn">Activities</Button>
+class App extends React.Component {
+
+  state = {
+    data: [],
+    id: 0,
+    message: null,
+    intervalIsSet: false,
+    idToDelete: null,
+    idToUpdate: null,
+    objectToUpdate: null
+  };
+
+
+  // never let a process live forever
+ // always kill a process everytime we are done using it
+
+
+ // just a note, here, in the front end, we use the id key of our data object
+ // in order to identify which we want to Update or delete.
+ // for our back end, we use the object id assigned by MongoDB to modify
+ // data base entries
+
+ // our first get method that uses our backend api to
+ // fetch data from our data base
+
+  render(){
+    return (
+      <Router>
+        <br />
+        <div className="btn-container" role="group" aria-label="Basic example">
+          <div className="btn-group">
+            <Button href="/flights" type="button" className="btn btn-secondary" id="flight-btn">Flights</Button>
+            <Button href="/hotels" type="button" className="btn btn-secondary" id="hotel-btn">Hotels</Button>
+            <Button href="/activities" type="button" className="btn btn-secondary" id="activity-btn">Activities</Button>
+          </div>
         </div>
-      </div>
-      <br />
-      <br />
-      <div className="component-content">
-        {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route} />
-        ))}
-      </div>
-    </Router>
-  );
+        <br />
+        <br />
+        <div className="component-content">
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

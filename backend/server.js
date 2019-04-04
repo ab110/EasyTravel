@@ -1,9 +1,9 @@
-const mongoose = require(“mongoose”);
-const express = require(“express”);
-var cors = require(‘cors’);
-const bodyParser = require(“body-parser”);
-const logger = require(“morgan”);
-const Data = require(“./data”);
+const mongoose = require("mongoose");
+const express = require('express');
+var cors = require('cors');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
+const Data = require('./data');
 
 const API_PORT = 3001;
 const app = express();
@@ -34,10 +34,10 @@ app.use(logger("dev"));
 
 // this is our get method
 // this method fetches all available data in our database
-router.get("/getData", (req, res) => {
+router.get("/flightTest", (req, res) => {
   Data.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true, data: data });
+    return res.json({ success: true, data: 'noice' });
   });
 });
 
