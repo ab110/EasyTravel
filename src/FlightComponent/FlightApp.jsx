@@ -50,11 +50,23 @@ class FlightComponent extends React.Component {
   }
 
   onSubmit(e) {
+
     e.preventDefault();
     this.setState({
       IsHidden: false
     })
+    this.getFlight();
   }
+
+  getFlight = async () => {
+    const response = await fetch('/flightTest');
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message)
+    }
+    return body;
+  };
 
   render() {
     const results = mockResults.map((result) => <FlightResult ID={result.ID} Name={result.Name} Price={result.Price} Time={result.Time} Link={result.Link} />);

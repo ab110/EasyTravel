@@ -57,7 +57,7 @@ class App extends React.Component {
     data: null
   };
 
-  componentDidMount() {
+  /*componentDidMount() {
       // Call our fetch function below once the component mounts
     this.callBackendAPI()
       .then(res => this.setState({ data: res.express }))
@@ -73,7 +73,7 @@ class App extends React.Component {
       throw Error(body.message)
     }
     return body;
-  };
+  };*/
 
 
   render(){
