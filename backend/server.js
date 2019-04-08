@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+var routes = require("./routes/routes.js");
 const port = process.env.PORT || 3001;
 const mongoose = require("mongoose");
 var cors = require('cors');
@@ -8,7 +9,10 @@ const logger = require('morgan');
 
 const API_PORT = 3001;
 app.use(cors());
-const router = express.Router();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+routes(app);
 
 // this is our MongoDB database
 const dbRoute = "mongodb+srv://root:alpine@easytravel-xd6sb.mongodb.net/test?retryWrites=true";
@@ -28,9 +32,3 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
-// create a GET route
-app.get('/express_backend', (req, res) => {
-  console.log("yoo");
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-});
