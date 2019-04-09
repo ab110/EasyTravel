@@ -1,34 +1,44 @@
+// import npm modules
+const fs = require('fs');
+const path = require('path');
 const express = require('express');
-const app = express();
-var routes = require("./routes/routes.js");
-const port = process.env.PORT || 3001;
-const mongoose = require("mongoose");
-var cors = require('cors');
 const bodyParser = require('body-parser');
-const logger = require('morgan');
+const cors = require('cors');
+const winston = require('winston');
+const compression = require('compression');
+const expressWinston = require('express-winston');
+const winstonPapertrail = require('winston-papertrail');
 
-const API_PORT = 3001;
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// initialize the api
+const api = express();
 
-routes(app);
 
-// this is our MongoDB database
-const dbRoute = "mongodb+srv://root:alpine@easytravel-xd6sb.mongodb.net/test?retryWrites=true";
+// initialize middleware
+api.use(cors());
+api.use(compression());
+api.use(bodyParser.urlencoded({ extended: true }));
+api.use(bodyParser.json());
 
-// connects our back end code with the database
-mongoose.connect(
-  dbRoute,
-  { useNewUrlParser: true }
-);
+// initialize our logger (in our case, winston + papertrail)
 
-let db = mongoose.connection;
 
-db.once("open", () => console.log("connected to the database"));
+// listen on the designated port found in the configuration
+api.listen(3001, err => {
+        if (err) {
+                logger.error(err);
+                process.exit(1);
+        }
 
-// checks if connection with the database is successful
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
+// require the database library (which instantiates a connection to mongodb)
+        require('./db');
 
-// console.log that your server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
+// loop through all routes and dynamically require them – passing api
+        fs.readdirSync(path.join(__dirname, 'routes')).map(file => {
+                require('./routes/' + file)(api);
+        });
+
+// output the status of the api in the terminal
+        console.log(`API is now running on port ${3001}`);
+});
+
+module.exports = api;
