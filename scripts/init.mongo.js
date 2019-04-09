@@ -15,3 +15,7 @@ db.flights.insertMany( [
    {"ID": 2, "Name": "Four Seasons", "Price": 93, "Link": "https://www.fourseasons.com/"},
    {"ID": 3, "Name": "Hilton", "Price": 66, "Link": "https://www3.hilton.com/en/index.html?WT.mc_id=zLADA0WW1XX2PSH3DA4PPC5PPC6MULTIBR7"}
 ]);
+
+db.profiles.insertMany( [
+   {"First Name":"John", "Last Name":"Smith", "Location:": "New York"}
+]);
