@@ -5,6 +5,7 @@ import './App.css';
 import { ActivityComponent, ActivityResult } from './ActivityComponent/ActivityApp.jsx';
 import { FlightComponent, FlightResult } from './FlightComponent/FlightApp.jsx';
 import { HotelComponent, HotelResult } from './HotelComponent/HotelApp.jsx';
+import {MessageComponent} from './MessageComponent/MessageApp.jsx'
 import axios from "axios";
 
 class LandingPage extends React.Component{
@@ -35,6 +36,10 @@ const routes = [
   {
     path: "/activities",
     component: ActivityComponent
+  },
+  {
+    path:"/message",
+    component: MessageComponent
   }
 ];
 

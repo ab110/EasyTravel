@@ -7,7 +7,7 @@ const validator = require('validator');
 const Flight = require('../models/flightModel.js');
 
 // retrieve a list of all users
-exports.list = (req, res) => {
+exports.get = (req, res) => {
   console.log("yo");
   Flight.find({}).then(flights => {
 			res.json(flights);
