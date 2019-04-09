@@ -2,29 +2,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-const mockResults = [
-  {
-    ID: 1,
-    Name: "United",
-    Price: 534,
-    Time: "9:30 PM",
-    Link: "https://www.united.com/en/us"
-  },
-  {
-    ID: 2,
-    Name: "Delta",
-    Price: 314,
-    Time: "3:41 PM",
-    Link: "https://www.delta.com"
-  },
-  {
-    ID: 3,
-    Name: "Alaska Air",
-    Price: 254,
-    Time: "10:15 AM",
-    Link: "https://www.alaskaair.com"
-  }
-];
+let mockResults = [];
 
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
@@ -37,7 +15,8 @@ class FlightComponent extends React.Component {
       Destination: "ny",
       StartDate: '05/04/2019',
       EndDate: '06/04/2019',
-      IsHidden: true
+      IsHidden: true,
+      flightList: []
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -61,7 +40,9 @@ class FlightComponent extends React.Component {
   getFlight = async () => {
     const response = await fetch('/flightTest');
     const body = await response.json();
-
+    this.state.flightList = body;
+    let mockResults = body;
+    console.log(mockResults);
     if (response.status !== 200) {
       throw Error(body.message)
     }
@@ -69,7 +50,9 @@ class FlightComponent extends React.Component {
   };
 
   render() {
-    const results = mockResults.map((result) => <FlightResult ID={result.ID} Name={result.Name} Price={result.Price} Time={result.Time} Link={result.Link} />);
+    const results = this.state.flightList.map((result) =>
+        <FlightResult id={result.id} name={result.name} price={result.price} time={result.time} />
+    );
     return (
       <div>
         <form>
@@ -126,8 +109,8 @@ class FlightResult extends React.Component {
   render() {
     return (
       <h3>
-        <Button onClick={this.onSelect}>Select</Button> {this.props.ID}. {this.props.Name}: (${this.props.Price}
-        , {this.props.Time}) <a href={this.props.Link}>Book Flight</a>
+        <Button onClick={this.onSelect}>Select</Button> {this.props.id}. {this.props.name}: (${this.props.price}
+        , {this.props.time})
         {!this.state.IsHidden &&
         <h4 style={{color:"#c67007"}} >You've selected to fly with {this.props.Name}!</h4>
         }
