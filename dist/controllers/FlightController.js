@@ -9,10 +9,7 @@ const Flight = require('../models/flightModel.js');
 // retrieve a list of all users
 exports.list = (req, res) => {
   console.log("yo");
-  Flight.find({}).then(flights => {
-			res.json(flights);
-		})
-		.catch(err => {
-			res.status(422).send(err.errors);
-		});
+  Flight.find({ name: "United" }).then(x => {
+    console.log(x);
+  });
 };

@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 
 // build user schema
   const FlightSchema = new Schema({
-      id: String,
+      id: Number,
       name: String,
-      time: String,
-      price: String
+      price: Number,
+      time: String
     },
     {
       collection: 'flights'
@@ -16,4 +16,4 @@ const Schema = mongoose.Schema;
 
 
 
-module.exports = exports = mongoose.model('Flight', FlightSchema); // export model for use
+module.exports = exports = mongoose.model("Flight", FlightSchema, "Flight"); // export model for use
