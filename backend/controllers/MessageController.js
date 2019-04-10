@@ -8,7 +8,6 @@ const Message = require('../models/messageModel.js');
 
 // retrieve a list of all users
 exports.get = (req, res) => {
-  console.log("yo");
   Message.find({}).then(messages => {
 			res.json(messages);
 		})
@@ -18,12 +17,11 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-  console.log("msg post");
   console.log(req.body.id);
   console.log(req.body.content);
   Message.insertMany([{
-    id: "hadsf",
-    content: "adfa"
+    id: req.body.id,
+    content: req.body.content
   }]).then(x => {
 			res.json(x);
 		})

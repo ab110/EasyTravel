@@ -22,6 +22,11 @@ else if(window.location.href === "http://localhost:3000/hotels") {
   let thisButton = document.getElementById("hotel-btn");
   thisButton.setAttribute("style", "background-color:rgba(37, 50, 56, 0.82);");
 }
+
+else if(window.location.href === "http://localhost:3000/message") {
+  let thisButton = document.getElementById("msg-btn");
+  thisButton.setAttribute("style", "background-color:rgba(37, 50, 56, 0.82);");
+}
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA

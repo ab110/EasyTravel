@@ -40,8 +40,9 @@ class FlightComponent extends React.Component {
   getFlight = async () => {
     const response = await fetch('/flightTest');
     const body = await response.json();
-    this.state.flightList = body;
-    let mockResults = body;
+    this.setState({
+      flightList: body
+    });
     if (response.status !== 200) {
       throw Error(body.message)
     }

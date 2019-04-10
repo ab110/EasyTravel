@@ -5,7 +5,7 @@ import './App.css';
 import { ActivityComponent, ActivityResult } from './ActivityComponent/ActivityApp.jsx';
 import { FlightComponent, FlightResult } from './FlightComponent/FlightApp.jsx';
 import { HotelComponent, HotelResult } from './HotelComponent/HotelApp.jsx';
-import {MessageComponent} from './MessageComponent/MessageApp.jsx'
+import {MessageComponent, Message} from './MessageComponent/MessageApp.jsx'
 import axios from "axios";
 
 class LandingPage extends React.Component{
@@ -90,11 +90,13 @@ class App extends React.Component {
             <Button href="/flights" type="button" className="btn btn-secondary" id="flight-btn">Flights</Button>
             <Button href="/hotels" type="button" className="btn btn-secondary" id="hotel-btn">Hotels</Button>
             <Button href="/activities" type="button" className="btn btn-secondary" id="activity-btn">Activities</Button>
+            <Button href="/message" type="button" className="btn btn-secondary" id="msg-btn">Forum</Button>
           </div>
           <p className="App-intro">{this.state.data}</p>
         </div>
         <br />
         <br />
+        
         <div className="component-content">
           {routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />

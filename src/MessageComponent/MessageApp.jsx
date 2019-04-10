@@ -48,18 +48,19 @@ class MessageComponent extends React.Component {
     this.setState({
       IsHidden: false
     });
-    console.log(this.state.msgContent);
     fetch('/message', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            id: 3,
+            id: this.state.messageList.length + 1,
             content: this.state.msgContent
         })
     })
     .then((res) => {
-        console.log(res)
-    })
+        console.log(res);
+    });
+    let msg = {"id": this.state.messageList.length + 1, "content": this.state.msgContent};
+    this.state.messageList.push(msg);
     this.state.msgContent = "";
   }
 
@@ -69,9 +70,6 @@ class MessageComponent extends React.Component {
     );
     return (
       <div>
-        <div>
-          {messages}
-        </div>
         <div className="message-form">
           <form>
             Type Message:
@@ -79,6 +77,7 @@ class MessageComponent extends React.Component {
           </form>
           <Button className="send-msg" onClick={e => this.onSubmit(e)}> Submit </Button>
         </div>
+        <div>{messages}</div>
       </div>
     );
   }
@@ -86,21 +85,10 @@ class MessageComponent extends React.Component {
 
 
 class Message extends React.Component {
-
   constructor(props) {
     super(props);
-
-    this.state = {
-      IsHidden: true
-    };
-
-    this.onSelect = this.onSelect.bind(this);
-  }
-
-  onSelect(){
-    this.setState({
-      IsHidden: false
-    })
+    this.id = this.props.id;
+    this.content = this.props.content;
   }
 
   render() {
