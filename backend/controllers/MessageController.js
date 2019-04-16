@@ -17,10 +17,10 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-  console.log(req.body.id);
+  console.log(req.body.userid);
   console.log(req.body.content);
   Message.insertMany([{
-    id: req.body.id,
+    userid: req.body.userid,
     content: req.body.content
   }]).then(x => {
 			res.json(x);

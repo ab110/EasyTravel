@@ -52,26 +52,29 @@ class MessageComponent extends React.Component {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            id: this.state.messageList.length + 1,
+            userid: this.state.userId,
             content: this.state.msgContent
         })
     })
     .then((res) => {
         console.log(res);
     });
-    let msg = {"id": this.state.messageList.length + 1, "content": this.state.msgContent};
+    let msg = {"userid": this.state.userId, "content": this.state.msgContent};
     this.state.messageList.push(msg);
     this.state.msgContent = "";
+    this.state.userId = "";
   }
 
   render() {
     const messages = this.state.messageList.map((result) =>
-        <Message id={result.id} content={result.content} />
+        <Message userid={result.userid} content={result.content} />
     );
     return (
       <div>
         <div className="message-form">
           <form>
+            Enter User Name:
+            <input type="text" name="userId" value={this.state.userId} onChange={e => this.onChange(e)}></input>
             Type Message:
             <input type="text" name="msgContent" value={this.state.msgContent} onChange={e => this.onChange(e)}></input>
           </form>
@@ -87,14 +90,14 @@ class MessageComponent extends React.Component {
 class Message extends React.Component {
   constructor(props) {
     super(props);
-    this.id = this.props.id;
+    this.userid = this.props.userid;
     this.content = this.props.content;
   }
 
   render() {
     return (
       <h3>
-        {this.props.id}. {this.props.content}
+        {this.props.userid}: {this.props.content}
       </h3>
     )
   }

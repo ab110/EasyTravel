@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 // build user schema
   const MessageSchema = new Schema({
-      id: Number,
+      userid: String,
       content: String
     }
   );
