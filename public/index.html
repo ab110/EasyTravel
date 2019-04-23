@@ -28,7 +28,47 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="navbar"></div>
+    <center>
+        <h3>Start Traveling!</h3>
+    </center>
+
+      <script src='https://d3js.org/d3.v4.min.js'></script>
+
+      <center>
+        <div id="data_example1">
+            <svg width="375" height="100">
+              <circle id = "circle" cx="30" cy="50" r="30" ></circle>
+              <circle id = "bcircle" cx="100" cy="50" r="30" ></circle>
+              <circle id = "circle" cx="170" cy="50" r="30" ></circle>
+              <circle id = "bcircle" cx="240" cy="50" r="30" ></circle>
+              <circle id = "circle" cx="310" cy="50" r="30" ></circle>
+            </svg>
+          </div>
+        </center>
+        
     <div id="root"></div>
+    <center>
+        <div id="data_example1">
+            <svg width="375" height="100">
+              <circle id = "bcircle" cx="30" cy="50" r="30" ></circle>
+              <circle id = "circle" cx="100" cy="50" r="30" ></circle>
+              <circle id = "bcircle" cx="170" cy="50" r="30" ></circle>
+              <circle id = "circle" cx="240" cy="50" r="30" ></circle>
+              <circle id = "bcircle" cx="310" cy="50" r="30" ></circle>
+            </svg>
+          </div>
+        </center>
+    <script>
+        d3.select('h3').style('color', 'blue');
+        d3.select('h3').style('font-size', '24px');
+        d3.selectAll('#bcircle')
+          .style('fill', 'blue')
+          .attr('r', function() {
+          return 30;
+        });
+        d3.selectAll('#circle')
+          .style('fill', 'darkblue');
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
