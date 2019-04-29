@@ -57,19 +57,19 @@ class FlightComponent extends React.Component {
       <div>
         <form>
           <label>
-            Origin:
+            Origin:&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" name="Origin" value={this.state.Origin} onChange={e => this.onChange(e)}/>
           </label><br></br>
           <label>
-            Destination:
+            Destination:&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" name="Destination" value={this.state.Destination} onChange={e => this.onChange(e)}/>
           </label><br></br>
           <label>
-            Start Date:
+            Start Date:&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="date" name="StartDate" value={this.state.StartDate} onChange={e => this.onChange(e)}/>
           </label><br></br>
           <label>
-            End Date:
+            End Date:&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="date" name="EndDate" value={this.state.EndDate} onChange={e => this.onChange(e)}/>
           </label><br></br>
         <Button type="submit" name="SubmitButton" onClick={e => this.onSubmit(e)}>Submit</Button>

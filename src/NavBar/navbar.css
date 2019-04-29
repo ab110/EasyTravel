@@ -3,13 +3,12 @@
 }
 
 .header-title h1{
-  font-size: 2.25vw;
-  font-family: cursive;
-  text-decoration: underline;
-  color: rgb(0, 124, 255);
+  font-size: 3.25vw;
+  font-family: fantasy;
+  color: #ffffff;
 }
 
 .fa-plane-departure{
   margin-top: .75vw;
-  font-size: 1.75vw;
+  font-size: 3.75vw;
 }

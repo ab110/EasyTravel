@@ -1,6 +1,7 @@
 // This is a place holder for the initial application state.
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import Alert from 'react-bootstrap/Alert'
 import { geoMercator, geoPath } from 'd3-geo'
 
 let mockResults = [];
@@ -74,12 +75,14 @@ class MessageComponent extends React.Component {
       <div>
         <div className="message-form">
           <form>
-            Enter User Name:
+            Enter User Name:&nbsp;
             <input type="text" name="userId" value={this.state.userId} onChange={e => this.onChange(e)}></input>
-            Type Message:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type Message:&nbsp;
             <input type="text" name="msgContent" value={this.state.msgContent} onChange={e => this.onChange(e)}></input>
           </form>
+          <br></br>
           <Button className="send-msg" onClick={e => this.onSubmit(e)}> Submit </Button>
+          <br></br><br></br>
         </div>
         <div>{messages}</div>
       </div>
@@ -96,10 +99,18 @@ class Message extends React.Component {
   }
 
   render() {
+    const style = {
+      color: '#e51624'
+    };
+
     return (
-      <h3>
-        {this.props.userid}: {this.props.content}
-      </h3>
+      <div>
+        <div class="container">
+          <Alert variant="secondary">
+            {this.props.userid}: <Alert.Heading>{this.props.content}</Alert.Heading>
+          </Alert>
+        </div>
+      </div>
     )
   }
 }

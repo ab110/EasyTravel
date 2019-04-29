@@ -6,7 +6,7 @@ import './navbar.css';
 class NavComponent extends React.Component {
   render() {
     return (
-      <Navbar className="bg-dark justify-content-between">
+      <Navbar className="bg-danger justify-content-between">
         <div className="branding header-space">
           <a href="./home" className="nav-link">
             <span className="title header-title">
