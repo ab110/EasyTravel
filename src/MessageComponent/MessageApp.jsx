@@ -39,6 +39,7 @@ class MessageComponent extends React.Component {
     const response = await fetch('/message');
     const body = await response.json();
     this.state.messageList = body;
+    this.state.messageList.reverse();
     if (response.status !== 200) {
       throw Error(body.message)
     }
@@ -69,7 +70,6 @@ class MessageComponent extends React.Component {
   }
 
   render() {
-    this.state.messageList.reverse();
     const messages = this.state.messageList.map((result) =>
         <Message userid={result.userid} content={result.content} />
     );
