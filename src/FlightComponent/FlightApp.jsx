@@ -1,6 +1,7 @@
 // This is a place holder for the initial application state.
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import Alert from 'react-bootstrap/Alert'
 
 let mockResults = [];
 
@@ -108,13 +109,14 @@ class FlightResult extends React.Component {
 
   render() {
     return (
-      <h3>
-        <Button onClick={this.onSelect}>Select</Button> {this.props.id}. {this.props.name}: (${this.props.price}
-        , {this.props.time})
+      <Alert variant="secondary">
+        <Alert.Heading><Button onClick={this.onSelect}>Select</Button> {this.props.id}. {this.props.name}: (${this.props.price}
+          , {this.props.time})</Alert.Heading><a href="#">Book Flight</a>
         {!this.state.IsHidden &&
         <h4 style={{color:"#c67007"}} >You've selected to fly with {this.props.Name}!</h4>
         }
-      </h3>
+      </Alert>
+      
     )
   }
 }

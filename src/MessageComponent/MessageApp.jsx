@@ -69,6 +69,7 @@ class MessageComponent extends React.Component {
   }
 
   render() {
+    this.state.messageList.reverse();
     const messages = this.state.messageList.map((result) =>
         <Message userid={result.userid} content={result.content} />
     );
