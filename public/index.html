@@ -45,6 +45,9 @@
         
     <div id="root"></div>
     <center>
+        <button onclick="getLocation()">Current Location</button>
+    </center>
+    <center>
         <div id="data_example1">
             <svg width="375" height="100">
               <circle id = "bcircle" cx="30" cy="50" r="30" ></circle>
@@ -55,6 +58,9 @@
             </svg>
           </div>
         </center>
+    <center>
+        <p id="location"></p>
+    </center>
     <script>
         d3.selectAll('#bcircle')
           .style('fill', 'blue')
@@ -63,6 +69,23 @@
         });
         d3.selectAll('#circle')
           .style('fill', 'darkblue');
+
+        var x = document.getElementById("location");
+        d3.selectAll('#location')
+          .style('fill', 'blue');
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;
+        }
     </script>
     <!--
       This HTML file is a template.
