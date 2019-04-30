@@ -1,3 +1,4 @@
+
 .component-content {
   text-align: center;
 }
@@ -10,6 +11,11 @@
   display: inline-block;
 }
 
-.btn-secondary{
-  
+.navbar{
+  background-color: #000000;
+}
+
+.nav-item{
+  font-size: 40px;
+  color: #ffffff;
 }

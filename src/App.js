@@ -85,15 +85,13 @@ class App extends React.Component {
     return (
       <Router>
         <br />
-        <div className="btn-container" role="group" aria-label="Basic example">
-          <div className="btn-group">
-            <Button href="/flights" type="button" className="btn btn-secondary" id="flight-btn">Flights</Button>
-            <Button href="/hotels" type="button" className="btn btn-secondary" id="hotel-btn">Hotels</Button>
-            <Button href="/activities" type="button" className="btn btn-secondary" id="activity-btn">Activities</Button>
-            <Button href="/message" type="button" className="btn btn-secondary" id="msg-btn">Forum</Button>
-          </div>
-          <p className="App-intro">{this.state.data}</p>
-        </div>
+        <nav class="navbar nav-justified">
+          <a class="nav-item nav-link active" href="/flights" id="flight-btn">Flights</a>
+          <a class="nav-item nav-link" href="/hotels" id="hotel-btn">Hotels</a>
+          <a class="nav-item nav-link" href="/activities" id="activity-btn">Activities</a>
+          <a class="nav-item nav-link" href="/message" id="msg-btn">Forum</a>
+        </nav>
+        
         <br />
         <br />
         

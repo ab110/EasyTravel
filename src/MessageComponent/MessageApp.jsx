@@ -63,8 +63,7 @@ class MessageComponent extends React.Component {
         console.log(res);
     });
     let msg = {"userid": this.state.userId, "content": this.state.msgContent};
-    this.state.messageList.push(msg);
-    this.state.messageList.reverse();
+    this.state.messageList.unshift(msg);
     this.state.msgContent = "";
     this.state.userId = "";
   }
