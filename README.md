@@ -32,7 +32,7 @@ EASYTRAVEL.COM
 4. Bootstrap: We made a lot of change using bootstrap to make it visually more appealing and user friendly.
 
 5. Third Party API:
-	Geolocation: We added a small feature on every page which a user can use to find their Current Location (it takes a few seconds to get the location after clicking the button).
+	Geolocation: We added a small feature on every page which a user can use to find their Current Location (it takes a few seconds to get the location after clicking the button sometimes).
 
 These are some of the extensions we came up with. We are no way near our goal website, but we have set up the website in a way that we can extend to build that, given that we have more time and people to work on it.
 

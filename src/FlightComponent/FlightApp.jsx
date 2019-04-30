@@ -111,9 +111,9 @@ class FlightResult extends React.Component {
     return (
       <Alert variant="secondary">
         <Alert.Heading><Button onClick={this.onSelect}>Select</Button> {this.props.id}. {this.props.name}: (${this.props.price}
-          , {this.props.time})</Alert.Heading><a href="#">Book Flight</a>
+          , {this.props.time})</Alert.Heading><a href="https://www.kayak.com/flights">Book Flight</a>
         {!this.state.IsHidden &&
-        <h4 style={{color:"#c67007"}} >You've selected to fly with {this.props.Name}!</h4>
+        <h4 style={{color:"#c67007"}} >You've selected to fly with {this.props.name}!</h4>
         }
       </Alert>
       
