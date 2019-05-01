@@ -42,4 +42,4 @@ https://github.com/ab110/EasyTravel/
 
 
 # Video Link
-
+https://drive.google.com/file/d/1dv071CkM4C50sFeRoDTyjUflodzITvp8/view?usp=sharing
